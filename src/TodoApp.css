@@ -1,0 +1,111 @@
+/* TodoApp.css */
+
+/* Общий контейнер для всего приложения */
+.todo-app {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.todo-app h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Стили для формы добавления */
+.add-task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-task-form input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-task-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-task-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для списка задач */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Стили для одного элемента списка */
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.task-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.task-item:last-child {
+  border-bottom: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.task-item input[type="checkbox"] {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+/* Текст задачи, занимает все оставшееся место */
+.task-text {
+  flex-grow: 1;
+  color: #444;
+}
+
+/* Стиль для выполненной задачи */
+.task-text.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+/* Кнопка удаления */
+.delete-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #dc3545;
+  background-color: transparent;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.task-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
