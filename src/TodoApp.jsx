@@ -49,7 +49,8 @@ function TodoApp() {
                 <input type="text" value={inputText} onChange={handleInputText} />
                 <button type="submit">Добавить</button>
             </form>
-            <ul className="task-list">
+
+            {tasks.length === 0 ? <p>Список задач пуст</p> : <ul className="task-list">
                {tasks.map((task) => (
                  <li key={task.id} className="task-item">
                     <input type="checkbox"
@@ -61,7 +62,7 @@ function TodoApp() {
                  <button onClick={() => handleDeleteTask(task.id)} className="delete-btn">Удалить</button>
                  </li>
                ))}
-            </ul>
+            </ul> }
         </div>
     )
 }
