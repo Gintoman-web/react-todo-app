@@ -15,11 +15,14 @@ function TodoApp() {
 
     const handleAddTask = (event) => {
         event.preventDefault();
-        if (inputText === '') {
+        const trimmedValue = inputText.trim();
+
+          if (trimmedValue === '') {
             return
-        };
+          }
+
         const newTask = {
-            text: inputText,
+            text: trimmedValue,
             completed: false,
             id: Date.now()
         };
