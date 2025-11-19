@@ -8,7 +8,7 @@ function TodoApp() {
     ]);
     const [inputText, setInputText] = useState('');
 
-    const handleInputText = (event) => {
+    const handleInputChange = (event) => {
         const newText = event.target.value;
         setInputText(newText)
     };
@@ -17,9 +17,8 @@ function TodoApp() {
         event.preventDefault();
         const trimmedValue = inputText.trim();
 
-          if (trimmedValue === '') {
+          if (!inputText.trim())
             return
-          }
 
         const newTask = {
             text: trimmedValue,
@@ -39,7 +38,7 @@ function TodoApp() {
         setTasks(tasks.map(task => {
             if (task.id === id) {
                 return {...task, completed: !task.completed};
-            };
+            }
             return task;
         }
         ))
@@ -49,19 +48,21 @@ function TodoApp() {
         <div className="todo-app">
             <h1>Список задач</h1>
             <form onSubmit={handleAddTask} className="add-task-form">
-                <input type="text" value={inputText} onChange={handleInputText} />
+                <input type="text" value={inputText} onChange={handleInputChange} />
                 <button type="submit">Добавить</button>
             </form>
 
             {tasks.length === 0 ? <p>Список задач пуст</p> : <ul className="task-list">
                {tasks.map((task) => (
                  <li key={task.id} className="task-item">
+                 <label style={{cursor: 'pointer'}}>
                     <input type="checkbox"
                     checked={task.completed}
                     onChange={() => handleToggleComplete(task.id)} />
                     <span className={`task.text ${task.completed ? 'completed' : ''}`}>
                     {task.text}
                     </span>
+                    </label>
                  <button onClick={() => handleDeleteTask(task.id)} className="delete-btn">Удалить</button>
                  </li>
                ))}
